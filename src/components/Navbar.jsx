@@ -41,15 +41,15 @@ const Navbar = () => {
         <HStack spacing={8} alignItems='center'>
           <Box color='white'>E-Commerce</Box>
           <HStack as='nav' spacing={4} display={{ base: 'none', md: 'flex' }}>
-            <Link href='/' prefetch={false} color='white'>
+            <Link href='/' prefetch={false} className='text-white'>
               Home
             </Link>
 
-            <Link href='/products' prefetch={false} color='white'>
+            <Link href='/products' prefetch={false} className='text-white'>
               Products
             </Link>
 
-            <Link href='/cart' prefetch={false} color='white'>
+            <Link href='/cart' prefetch={false} className='text-white'>
               Cart
             </Link>
           </HStack>
