@@ -7,13 +7,13 @@ Product details with add-to-cart functionality
 Shopping cart with quantity management and checkout
 Persistent cart state using localStorage
 
-1). git clone https://github.com/your-username/e-commerce-project.git
+1. git clone https://github.com/Osomhe1/ecommerce-frontend
 
-2). cd ecommerce-frontend
+2. cd ecommerce-frontend
 
-3). npm install
+3. npm install
 
-4). npm run dev
+4. npm run dev
 
 Questions
 
