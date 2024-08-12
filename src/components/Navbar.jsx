@@ -1,4 +1,3 @@
-// components/Navbar.js
 'use client'
 
 import {
@@ -8,6 +7,8 @@ import {
   IconButton,
   Button,
   useDisclosure,
+  VStack,
+  Collapse,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
@@ -44,11 +45,9 @@ const Navbar = () => {
             <Link href='/' prefetch={false} className='text-white'>
               Home
             </Link>
-
             <Link href='/products' prefetch={false} className='text-white'>
               Products
             </Link>
-
             <Link href='/cart' prefetch={false} className='text-white'>
               Cart
             </Link>
@@ -77,6 +76,47 @@ const Navbar = () => {
           )}
         </Flex>
       </Flex>
+
+      {/* Mobile Sidebar */}
+      <Collapse in={isOpen}>
+        <VStack
+          display={{ base: 'grid', md: 'none' }}
+          position='absolute'
+          top={16}
+          left={0}
+          right={0}
+          gap={4}
+          bg='gray.700'
+          p={4}
+          spacing={4}
+          className='z-20'
+        >
+          <Link
+            href='/'
+            prefetch={false}
+            className='text-white'
+            onClick={onClose}
+          >
+            Home
+          </Link>
+          <Link
+            href='/products'
+            prefetch={false}
+            className='text-white'
+            onClick={onClose}
+          >
+            Products
+          </Link>
+          <Link
+            href='/cart'
+            prefetch={false}
+            className='text-white'
+            onClick={onClose}
+          >
+            Cart
+          </Link>
+        </VStack>
+      </Collapse>
     </Box>
   )
 }
