@@ -11,11 +11,16 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const storedUser = localStorage && JSON.parse(localStorage.getItem('user'))
-  const isAuthenticated = !!storedUser
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user')
+    setIsAuthenticated(!!storedUser)
+  }, [])
 
   const handleLogout = (event) => {
     event.preventDefault()

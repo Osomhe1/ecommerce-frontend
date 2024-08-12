@@ -12,16 +12,20 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([])
 
   useEffect(() => {
-    // Load cart from localStorage when the component mounts
-    const savedCart = localStorage.getItem('cart')
-    if (savedCart) {
-      setCart(JSON.parse(savedCart))
+    if (typeof window !== 'undefined') {
+      // Fetch cart from localStorage
+      const savedCart = localStorage.getItem('cart')
+      if (savedCart) {
+        setCart(JSON.parse(savedCart))
+      }
     }
   }, [])
 
   useEffect(() => {
-    // Save cart to localStorage whenever it changes
-    localStorage.setItem('cart', JSON.stringify(cart))
+    if (typeof window !== 'undefined') {
+      // Update localStorage when cart changes
+      localStorage.setItem('cart', JSON.stringify(cart))
+    }
   }, [cart])
 
   const addToCart = (product) => {
